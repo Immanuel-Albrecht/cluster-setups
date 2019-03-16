@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NAME="kubernetes-test"
+NAME="ekstest"
 VPC="eks-vpc-stack"
 SECGROUP="sg-073cb5b5614e19057"
 VPCID="vpc-065d8cd80301bcce5"

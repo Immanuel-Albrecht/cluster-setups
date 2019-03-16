@@ -3,7 +3,7 @@
 NAME="ekstest"
 NODES="3"
 
-eksctl create cluster --name $NAME --nodes $NODES --region eu-central-1
+eksctl delete cluster --name $NAME 
 
 #VPC="eks-vpc-stack"
 #SECGROUP="sg-073cb5b5614e19057"
