@@ -3,7 +3,7 @@
 if ! [ -z "$1" ] ; then
 	NAME="$1"
 else
-	NAME="timmey"
+	NAME="gru"
 fi
 
 set -x
