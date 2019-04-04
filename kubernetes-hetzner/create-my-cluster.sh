@@ -66,6 +66,7 @@ for name in $MINIONS ; do
 		sleep 5
 		echo -n "."
 	done
+	echo "."
 	IDX=$((IDX - 1))
 
   fi
