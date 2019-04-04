@@ -48,3 +48,6 @@ TOKEN_NAME=$(kubectl describe serviceAccounts admin-user -n kube-system | grep T
 kubectl describe secrets $TOKEN_NAME -n kube-system | grep 'token:' | awk '{print $2}' > $HOME/dashboard-admin-token
 
 kubectl apply --filename https://git.io/weave-kube-1.6
+
+
+touch ~/master-is-setup
