@@ -44,7 +44,7 @@ done
 echo -n "Waiting for master"
 
 while true ; do
-	if ! [ -z $(ssh root@gru /bin/bash -c "'if [ -f ~/master-is-setup ] ; then echo CONTINUE ; fi'" ) ] ; then
+	if ! [ -z $(ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@gru /bin/bash -c "'if [ -f ~/master-is-setup ] ; then echo CONTINUE ; fi'" ) ] ; then
 		break	
 	fi
 	sleep 5
@@ -60,7 +60,7 @@ for name in $MINIONS ; do
 	echo -n "Waiting for $name"
 
 	while true ; do
-		if ! [ -z $(ssh "root@$name" /bin/bash -c "' if [ -f ~/minion-waiting-to-join ] ; then echo CONTINUE ; fi'" ) ] ; then
+		if ! [ -z $(ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "root@$name" /bin/bash -c "' if [ -f ~/minion-waiting-to-join ] ; then echo CONTINUE ; fi'" ) ] ; then
 			break	
 		fi
 		sleep 5

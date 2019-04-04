@@ -2,4 +2,4 @@
 
 TARGET=root@$1
 
-ssh $TARGET 'cat ~/dashboard-admin-token'
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $TARGET 'cat ~/dashboard-admin-token'
