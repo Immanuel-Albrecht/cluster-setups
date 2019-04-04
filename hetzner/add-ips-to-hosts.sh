@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+echo Unlocked SUDO. | sudo cat
 
 while read -r line ; do
 	hostname=$(echo $line | awk '{ print $2 }')
@@ -19,4 +21,4 @@ while read -r line ; do
 
 	fi
 
-done <<< "$(hcloud server list | grep running)"
+done <<< "$(./hcloud.sh server list | grep running)"

@@ -7,4 +7,4 @@ else
 fi
 
 set -x
-hcloud server delete "$NAME"
+./hcloud.sh server delete "$NAME"
