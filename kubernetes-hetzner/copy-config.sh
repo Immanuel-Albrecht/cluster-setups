@@ -4,4 +4,4 @@ TARGET=root@$1
 
 mkdir -p ~/.kube
 
-scp $TARGET:.kube/config ~/.kube/config
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $TARGET:.kube/config ~/.kube/config

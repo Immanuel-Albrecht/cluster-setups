@@ -2,7 +2,7 @@
 
 TARGET=root@$1
 
-scp -r payloads $TARGET:'~'
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r payloads $TARGET:'~'
 
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $TARGET 'chmod +x payloads/*'
 
