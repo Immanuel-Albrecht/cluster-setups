@@ -16,8 +16,18 @@ while read -r line ; do
 		ssh-keygen -R "$hostname"
 		ssh-keygen -R "$ipv4"
 		ssh-keygen -R "$ipv6"
+		
+		for ((keyretrycount=0; keyretrycount<10; keyretrycount += 1)) ; do
 
-		ssh-keyscan -T 10 $hostname >> ~/.ssh/known_hosts
+		  echo "(Re)trying keyscan  ($keyretrycount failed attempts)"
+
+		  ANY_RESULTS="$(ssh-keyscan -T 10 $hostname 2>&1 >> ~/.ssh/known_hosts)"
+		  
+		  if ! [ -z "$ANY_RESULTS" ] ; then
+		    break
+		  fi
+		
+		done
 
 	fi
 
