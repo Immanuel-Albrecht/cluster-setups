@@ -26,6 +26,8 @@ while read -r line ; do
 		  if ! [ -z "$ANY_RESULTS" ] ; then
 		    break
 		  fi
+		  
+		  sleep 10
 		
 		done
 
