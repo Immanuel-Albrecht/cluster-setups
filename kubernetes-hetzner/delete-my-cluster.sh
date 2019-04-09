@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-MINIONS="dave stuart jerry jorge tim mark phil kevin bob jon"
+MINIONS="$(./minion-names.sh)"
 
 ./delete-mini-server.sh
 for name in $MINIONS ; do

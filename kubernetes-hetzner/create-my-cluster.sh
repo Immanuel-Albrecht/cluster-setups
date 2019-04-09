@@ -7,7 +7,7 @@ echo Please unlock sudo!
 echo Thanks! | sudo cat
 
 
-MINIONS="dave stuart jerry jorge tim mark phil kevin bob jon"
+MINIONS="$(./minion-names.sh)"
 
 if ! [ -z "$1" ] ; then
 COUNT="$1"
