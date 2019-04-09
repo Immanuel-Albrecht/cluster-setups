@@ -2,15 +2,45 @@
 
 set -x
 
-apt-get install -y docker.io
+while true ; do
+    if apt-get install -y docker.io ; then
+         break
+    fi
+    sleep 10
+done
 
-systemctl enable docker
+while true ; do
+    if systemctl enable docker ; then
+         break
+    fi
+    sleep 10
+done
 
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+while true ; do
+    if curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add ; then
+         break
+    fi
+    sleep 10
+done
 
-apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+while true ; do
+    if apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" ; then
+         break
+    fi
+    sleep 10
+done
 
-apt-get install -y kubeadm
+while true ; do
+    if apt-get install -y kubeadm ; then
+         break
+    fi
+    sleep 10
+done
 
-swapoff -a
+while true ; do
+    if swapoff -a ; then
+         break
+    fi
+    sleep 10
+done
 
