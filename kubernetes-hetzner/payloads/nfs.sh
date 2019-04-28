@@ -4,13 +4,13 @@ set -x
 
 echo "Safety first: disable rpcbind for everyone..."
 
-while [ -z "$(cat /etc/hosts.deny | grep '^rpcbind: ALL\$')" ] ; do
+while [ -z "$(cat /etc/hosts.deny | grep '^rpcbind: ALL$')" ] ; do
 	echo "rpcbind: ALL" >> /etc/hosts.deny
 done
 
 echo "Allowing localhost to access rpcbind...."
 
-while [ -z "$(cat /etc/hosts.allow | grep '^rpcbind: localhost\$')" ] ; do
+while [ -z "$(cat /etc/hosts.allow | grep '^rpcbind: localhost$')" ] ; do
 	echo "rpcbind: localhost" >> /etc/hosts.allow
 done
 
