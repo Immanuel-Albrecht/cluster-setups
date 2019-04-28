@@ -31,12 +31,14 @@ sleep 5
 ./add-ips-to-hosts.sh
 
 ./run-payloads.sh gru 'payloads/kubernetes-master.sh'
+./run-payloads.sh gru 'payloads/nfs.sh' skip-copy
 
 IDX="$COUNT"
 
 for name in $MINIONS ; do
   if [ $IDX -gt 0 ] ; then
 	./run-payloads.sh $name 'payloads/kubernetes-minion.sh'
+	./run-payloads.sh $name 'payloads/nfs.sh' skip-copy
 	IDX=$((IDX - 1))
   fi
 done
