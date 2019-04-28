@@ -33,9 +33,11 @@ else
 	echo "skipping copying of the payloads"
 fi
 
+SESSION_NAME="$(echo $2 | md5sum | awk '{ print substr($1,1,6) }')"
+
 while true ; do
 
-	if ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $TARGET "tmux new-session -d -s "$(basename $2)" $2" ; then
+	if ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $TARGET "tmux new-session -d -s $SESSION_NAME $2" ; then
     break
 fi
 
